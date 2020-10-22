@@ -1,0 +1,63 @@
+@model Dish
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Dish</title>
+</head>
+<body>
+    <h1>Create a new dish</h1>
+
+    <form asp-action="SaveDish" asp-asp-controller="Home" method="post">
+        
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+            <span asp-validation-for="Name" class="alert-danger"></span>
+            <div class="col-sm-10">
+                <input asp-for="Name" />
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Calories" class="col-sm-2 col-form-label"></label>
+            <span asp-validation-for="Calories" class="alert-danger"></span>
+            <div class="col-sm-10">
+                <input asp-for="Calories" />
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Tastiness" class="col-sm-2 col-form-label"></label>
+            <span asp-validation-for="Tastiness" class="alert-danger"></span>
+            <div class="col-sm-10">
+                <input asp-for="Tastiness" />
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+            <span asp-validation-for="Description" class="alert-danger"></span>
+            <div class="col-sm-10">
+                <input asp-for="Description" />
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="ChefID" class="col-sm-2 col-form-label"></label>
+            <span asp-validation-for="ChefID" class="alert-danger"></span>
+            <div class="col-sm-10">
+                <select asp-for="ChefID">
+                    @foreach (Chef c in ViewBag.AllChefs)
+                    {
+                        <option value="@c.ChefID">@c.FirstName</option>
+                    }
+                </select>    
+                <input asp-for="Description" />
+            </div>    
+        </div>
+
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</body>
+</html>

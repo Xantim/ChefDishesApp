@@ -1,0 +1,36 @@
+@model Dish
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="dishes/new">Add a Dish</a>
+
+    <h2>Our Dish Menu</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Tastiness</th>
+            <th>Description</th>
+        </tr>
+
+        @{
+            foreach (Dish d in ViewBag.AllDishes)
+            {
+                <tr>
+                    <td>@d.Name</td>
+                    <td>@d.Calories</td>
+                    <td>@d.Tastiness</td>
+                    <td>@d.Description</td>
+                </tr>
+            }
+        }
+    </table>
+    
+</body>
+</html>
